@@ -42,5 +42,58 @@ public class StringExam {
         String memberId = "123456-1234567";
         System.out.println(memberId.substring(0, memberId.indexOf("-")));
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        String str1 = "a";
+
+        str1 += "b";
+        str1 += "c";
+        // ^ 비효율적임!! - 더하기 할일이 7번 이상일 때 버퍼 사용하자
+
+        // StringBuffer <- 적극적으로 써보자
+        // 메모리를 효율적으로 사용한다.
+        // 스레드에 안전하다 ( Thread-safe )
+
+        StringBuffer sb = new StringBuffer("a");
+        sb.append("b"); // 뒤에 붙인다!
+        sb.append("c");
+
+//        System.out.println(sb);
+        String d = sb.toString();
+        System.out.println(d);
+
+        // StringBuffer보다 조금 빠름.
+        // 스레드에 안전하지 않다.
+        StringBuilder sb2 = new StringBuilder("a");
+        sb2.append("b");
+
+        // Buffer와 차이 없음 / 스레드 제외
+
+        int vol = -3;
+        if(vol < 0){
+            vol = 0;
+        }
+
+        // Math.max : 가장 큰 값을 리턴한다 -> 0보다 작으면 무조건 0으로 반환
+        // Math.min : 가장 작은 값을 리턴 -> 10보다 크면 10을 반환
+
+        // -> 이걸 응용해서 if문을 사용하지 않고
+        // 0 - 10의 숫자를 가져올 수 있음.
+        vol = Math.max(0, Math.min(10, vol));
+
     }
 }
